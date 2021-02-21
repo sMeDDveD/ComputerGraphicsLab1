@@ -1,0 +1,4 @@
+file(GLOB SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
+
+add_library(Colors STATIC ${SOURCE_FILES})
+target_include_directories(Colors INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
