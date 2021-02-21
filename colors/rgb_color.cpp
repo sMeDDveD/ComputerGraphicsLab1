@@ -1,12 +1,14 @@
 #include "rgb_color.h"
-#include "cmyk_color.h"
-#include "xyz_color.h"
 
 #include <algorithm>
+#include <cmath>
 
+#include "cmyk_color.h"
 #include "utilities.h"
+#include "xyz_color.h"
 
-RGBColor::RGBColor(uint8_t r, uint8_t g, uint8_t b) : r_(r), g_(g), b_(b) {
+RGBColor::RGBColor(uint8_t r, uint8_t g, uint8_t b, bool is_exact)
+    : r_(r), g_(g), b_(b), is_exact_(is_exact) {
 }
 
 uint8_t RGBColor::GetR() const {
@@ -19,6 +21,10 @@ uint8_t RGBColor::GetG() const {
 
 uint8_t RGBColor::GetB() const {
     return b_;
+}
+
+bool RGBColor::IsExact() const {
+    return is_exact_;
 }
 
 XYZColor RGBColor::ToXYZ() const {
@@ -43,15 +49,22 @@ CMYKColor RGBColor::ToCMYK() const {
     double k = std::min({1 - r, 1 - g, 1 - b});
     double rk = 1 / (1 - k);
 
-    return CMYKColor((1 - r - k) * rk, (1 - g - k) * rk, (1 - b - k) * rk, k);
+    return CMYKColor(std::round((1 - r - k) * rk),
+                 (1 - g - k) * rk, (1 - b - k) * rk, k, is_exact_);
 }
 std::ostream &operator<<(std::ostream &os, const RGBColor &color) {
     os << " r_: " << static_cast<int>(color.r_) << " g_: " << static_cast<int>(color.g_)
        << " b_: " << static_cast<int>(color.b_);
     return os;
 }
-void RGBColor::SetR(uint8_t r) { r_ = r; }
+void RGBColor::SetR(uint8_t r) {
+    r_ = r;
+}
 
-void RGBColor::SetG(uint8_t g) { g_ = g; }
+void RGBColor::SetG(uint8_t g) {
+    g_ = g;
+}
 
-void RGBColor::SetB(uint8_t b) { b_ = b; }
+void RGBColor::SetB(uint8_t b) {
+    b_ = b;
+}

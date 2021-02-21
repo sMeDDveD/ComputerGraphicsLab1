@@ -7,7 +7,7 @@
 class CMYKColor : public IConvertable {
 public:
     CMYKColor() = default;
-    CMYKColor(double c, double m, double y, double k);
+    CMYKColor(double c, double m, double y, double k, bool is_exact_ = true);
 
     double GetC() const;
     double GetM() const;
@@ -19,6 +19,8 @@ public:
     void SetY(double y);
     void SetK(double k);
 
+    virtual bool IsExact() const override;
+
     virtual XYZColor ToXYZ() const override;
     virtual RGBColor ToRGB() const override;
     virtual CMYKColor ToCMYK() const override;
@@ -26,6 +28,8 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const CMYKColor &color);
 
 private:
+    bool is_exact_ = true; 
+
     double c_;
     double m_;
     double y_;
