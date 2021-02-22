@@ -32,17 +32,17 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
   add_library(ColorConverter SHARED
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    main/main.cpp
+    main/mainwindow.cpp
+    main/mainwindow.h
+    main/mainwindow.ui
   )
 else()
   add_executable(ColorConverter
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    main/main.cpp
+    main/mainwindow.cpp
+    main/mainwindow.h
+    main/mainwindow.ui
   )
 endif()
 
