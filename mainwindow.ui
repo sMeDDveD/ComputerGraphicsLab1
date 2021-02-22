@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>ColorConverter</string>
   </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -28,12 +31,21 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_6">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayoutMain" stretch="1,2">
+     <layout class="QVBoxLayout" name="verticalLayoutMain" stretch="1,3">
       <property name="sizeConstraint">
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0">
+       <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,1">
+        <property name="spacing">
+         <number>30</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
         <item>
          <widget class="QFrame" name="frame_4">
           <property name="sizePolicy">
@@ -51,6 +63,18 @@
           <layout class="QHBoxLayout" name="horizontalLayout_19">
            <item>
             <widget class="QWidget" name="widgetColor" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>1</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string notr="true">Current color</string>
+             </property>
+             <property name="toolTipDuration">
+              <number>-1</number>
+             </property>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(239, 41, 41)</string>
              </property>
@@ -98,7 +122,7 @@
                      </property>
                      <property name="font">
                       <font>
-                       <family>JetBrains Mono Medium</family>
+                       <family>JetBrains Mono</family>
                        <pointsize>22</pointsize>
                        <weight>50</weight>
                        <bold>false</bold>
@@ -106,6 +130,15 @@
                      </property>
                      <property name="text">
                       <string>Palette</string>
+                     </property>
+                     <property name="autoDefault">
+                      <bool>false</bool>
+                     </property>
+                     <property name="default">
+                      <bool>false</bool>
+                     </property>
+                     <property name="flat">
+                      <bool>false</bool>
                      </property>
                     </widget>
                    </item>
@@ -180,7 +213,7 @@
               <widget class="QWidget" name="widgetRGB" native="true">
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="9,2">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -192,6 +225,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderR">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>255</number>
                     </property>
@@ -207,12 +246,19 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditR"/>
+                   <widget class="QSpinBox" name="spinBoxR">
+                    <property name="minimum">
+                     <number>0</number>
+                    </property>
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="9,2">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -224,6 +270,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderG">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>255</number>
                     </property>
@@ -239,12 +291,19 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditG"/>
+                   <widget class="QSpinBox" name="spinBoxG">
+                    <property name="minimum">
+                     <number>0</number>
+                    </property>
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="9,2">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -271,7 +330,14 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditB"/>
+                   <widget class="QSpinBox" name="spinBoxB">
+                    <property name="minimum">
+                     <number>0</number>
+                    </property>
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -336,7 +402,7 @@
               <widget class="QWidget" name="widgetCMYK" native="true">
                <layout class="QVBoxLayout" name="verticalLayout_15">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="6,0">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -348,6 +414,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderC">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
@@ -366,12 +438,19 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditC"/>
+                   <widget class="QDoubleSpinBox" name="doubleSpinBoxC">
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="6,0">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -383,6 +462,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderM">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
@@ -401,12 +486,19 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditM"/>
+                   <widget class="QDoubleSpinBox" name="doubleSpinBoxM">
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="6,0">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -418,6 +510,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderY">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
@@ -436,12 +534,19 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditY"/>
+                   <widget class="QDoubleSpinBox" name="doubleSpinBoxY">
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="6,0">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -453,6 +558,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderK">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
@@ -471,7 +582,14 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditK"/>
+                   <widget class="QDoubleSpinBox" name="doubleSpinBoxK">
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -536,7 +654,7 @@
               <widget class="QWidget" name="widget_5" native="true">
                <layout class="QVBoxLayout" name="verticalLayout_19">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="6,0">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -548,6 +666,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderX">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
@@ -558,17 +682,24 @@
                      <enum>QSlider::TicksBelow</enum>
                     </property>
                     <property name="tickInterval">
-                     <number>100</number>
+                     <number>10</number>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditX"/>
+                   <widget class="QDoubleSpinBox" name="doubleSpinBoxX">
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="6,0">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -580,6 +711,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderY_XYZ">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
@@ -590,17 +727,24 @@
                      <enum>QSlider::TicksBelow</enum>
                     </property>
                     <property name="tickInterval">
-                     <number>100</number>
+                     <number>10</number>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditY_XYZ"/>
+                   <widget class="QDoubleSpinBox" name="doubleSpinBoxY_XYZ">
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="6,2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="6,0">
                   <property name="spacing">
                    <number>15</number>
                   </property>
@@ -612,6 +756,12 @@
                   </property>
                   <item>
                    <widget class="QSlider" name="sliderZ">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
@@ -622,12 +772,19 @@
                      <enum>QSlider::TicksBelow</enum>
                     </property>
                     <property name="tickInterval">
-                     <number>100</number>
+                     <number>10</number>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEditZ"/>
+                   <widget class="QDoubleSpinBox" name="doubleSpinBoxZ">
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="singleStep">
+                     <double>0.500000000000000</double>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -655,6 +812,7 @@
     </rect>
    </property>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources/>
  <connections/>
