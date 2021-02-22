@@ -27,6 +27,10 @@ bool RGBColor::IsExact() const {
     return is_exact_;
 }
 
+void RGBColor::Exacted() {
+    is_exact_ = true;
+}
+
 XYZColor RGBColor::ToXYZ() const {
     double rn = FRGB(r_ / 255.0) * 100.0;
     double gn = FRGB(g_ / 255.0) * 100.0;
@@ -46,11 +50,10 @@ CMYKColor RGBColor::ToCMYK() const {
     double b = b_ / 255.0;
     double g = g_ / 255.0;
 
-    double k = std::min({1 - r, 1 - g, 1 - b});
-    double rk = 1 / (1 - k);
+    double k = 1.0 - std::max({r, g, b});
 
-    return CMYKColor(std::round((1 - r - k) * rk),
-                 (1 - g - k) * rk, (1 - b - k) * rk, k, is_exact_);
+    return CMYKColor((1.0 - r - k) / (1.0 - k), (1.0 - g - k) / (1.0 - k),
+                     (1.0 - b - k) / (1.0 - k), k, is_exact_);
 }
 std::ostream &operator<<(std::ostream &os, const RGBColor &color) {
     os << " r_: " << static_cast<int>(color.r_) << " g_: " << static_cast<int>(color.g_)

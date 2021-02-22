@@ -29,6 +29,10 @@ bool CMYKColor::IsExact() const {
     return is_exact_;
 }
 
+void CMYKColor::Exacted() {
+    is_exact_ = true;
+}
+
 XYZColor CMYKColor::ToXYZ() const {
     return this->ToRGB().ToXYZ();
 }

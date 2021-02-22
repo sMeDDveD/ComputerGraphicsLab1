@@ -20,6 +20,7 @@ public:
     void SetK(double k);
 
     virtual bool IsExact() const override;
+    virtual void Exacted() override;
 
     virtual XYZColor ToXYZ() const override;
     virtual RGBColor ToRGB() const override;

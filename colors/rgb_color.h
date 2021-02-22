@@ -20,6 +20,7 @@ public:
     void SetB(uint8_t b);
 
     virtual bool IsExact() const override;
+    virtual void Exacted() override;
 
     virtual XYZColor ToXYZ() const override;
     virtual RGBColor ToRGB() const override;
