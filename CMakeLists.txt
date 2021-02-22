@@ -30,8 +30,8 @@ add_subdirectory(colors/)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
-if(ANDROID)
-  add_library(ColorConverter SHARED
+if(WIN32)
+  add_executable(ColorConverter WIN32
     main/main.cpp
     main/mainwindow.cpp
     main/mainwindow.h
