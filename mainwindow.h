@@ -41,6 +41,26 @@ private slots:
 
     void on_sliderZ_valueChanged(int value);
 
+    void on_spinBoxR_valueChanged(int arg1);
+
+    void on_spinBoxG_valueChanged(int arg1);
+
+    void on_spinBoxB_valueChanged(int arg1);
+
+    void on_doubleSpinBoxC_valueChanged(double arg1);
+
+    void on_doubleSpinBoxM_valueChanged(double arg1);
+
+    void on_doubleSpinBoxY_valueChanged(double arg1);
+
+    void on_doubleSpinBoxK_valueChanged(double arg1);
+
+    void on_doubleSpinBoxX_valueChanged(double arg1);
+
+    void on_doubleSpinBoxY_XYZ_valueChanged(double arg1);
+
+    void on_doubleSpinBoxZ_valueChanged(double arg1);
+
 private:
     void AnyColorChanged(IConvertable *changer);
 

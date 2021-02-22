@@ -231,6 +231,9 @@
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">QSlider::handle:horizontal {background-color: red;}</string>
+                    </property>
                     <property name="maximum">
                      <number>255</number>
                     </property>
@@ -673,7 +676,7 @@
                      </sizepolicy>
                     </property>
                     <property name="maximum">
-                     <number>100</number>
+                     <number>120</number>
                     </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
@@ -689,7 +692,7 @@
                   <item>
                    <widget class="QDoubleSpinBox" name="doubleSpinBoxX">
                     <property name="maximum">
-                     <double>100.000000000000000</double>
+                     <double>120.000000000000000</double>
                     </property>
                     <property name="singleStep">
                      <double>0.500000000000000</double>
@@ -718,7 +721,7 @@
                      </sizepolicy>
                     </property>
                     <property name="maximum">
-                     <number>100</number>
+                     <number>120</number>
                     </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
@@ -734,7 +737,7 @@
                   <item>
                    <widget class="QDoubleSpinBox" name="doubleSpinBoxY_XYZ">
                     <property name="maximum">
-                     <double>100.000000000000000</double>
+                     <double>120.000000000000000</double>
                     </property>
                     <property name="singleStep">
                      <double>0.500000000000000</double>
@@ -763,7 +766,7 @@
                      </sizepolicy>
                     </property>
                     <property name="maximum">
-                     <number>100</number>
+                     <number>120</number>
                     </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
@@ -779,7 +782,7 @@
                   <item>
                    <widget class="QDoubleSpinBox" name="doubleSpinBoxZ">
                     <property name="maximum">
-                     <double>100.000000000000000</double>
+                     <double>120.000000000000000</double>
                     </property>
                     <property name="singleStep">
                      <double>0.500000000000000</double>
@@ -802,17 +805,14 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1131</width>
-     <height>24</height>
-    </rect>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="font">
+    <font>
+     <family>JetBrains Mono</family>
+     <pointsize>12</pointsize>
+    </font>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources/>
  <connections/>
