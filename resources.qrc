@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/fonts">
+        <file alias="MonoFont">resources/fonts/JetBrainsMonoNL-Regular.ttf</file>
+    </qresource>
+</RCC>
