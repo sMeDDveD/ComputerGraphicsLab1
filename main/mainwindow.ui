@@ -232,7 +232,7 @@
                      </sizepolicy>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">QSlider::handle:horizontal {background-color: red;}</string>
+                     <string notr="true"/>
                     </property>
                     <property name="maximum">
                      <number>255</number>
